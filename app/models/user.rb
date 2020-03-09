@@ -2,5 +2,7 @@
 
 class User < ApplicationRecord
   include Authentication
-  has_many :examples
+
+  has_many :ratings, dependent: :destroy
+  has_many :favorites, through: :ratings
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_131826) do
+ActiveRecord::Schema.define(version: 2020_03_09_153218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,46 @@ ActiveRecord::Schema.define(version: 2020_03_09_131826) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "family_id"
+    t.string "happiness"
+    t.string "integer"
+    t.string "honesty"
+    t.string "reliability"
+    t.string "consistency"
+    t.string "respect"
+    t.string "benefits"
+    t.string "kids"
+    t.string "safetyAndComfort"
+    t.string "pay"
+    t.string "workAgain"
+    t.string "string"
+    t.string "reputation"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["family_id"], name: "index_ratings_on_family_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "happiness"
+    t.integer "honesty"
+    t.integer "reliability"
+    t.integer "consistency"
+    t.integer "respect"
+    t.integer "benefits"
+    t.integer "kids"
+    t.integer "safetyAndComfort"
+    t.integer "pay"
+    t.string "workAgain"
+    t.string "url"
+    t.integer "reputation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "token", null: false
@@ -45,4 +85,6 @@ ActiveRecord::Schema.define(version: 2020_03_09_131826) do
   end
 
   add_foreign_key "examples", "users"
+  add_foreign_key "ratings", "families"
+  add_foreign_key "ratings", "users"
 end
