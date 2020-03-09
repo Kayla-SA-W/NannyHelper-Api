@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class RatingsController < ApplicationController
-  before_action :set_rating, only: [:show, :update, :destroy]
+  before_action :set_rating, only: %i[show update destroy]
 
   # GET /ratings
   def index
-    @ratings = Rating.all
+    @ratings = Rating.filter(params.slice(:family_id))
 
     render json: @ratings
   end
@@ -39,13 +41,18 @@ class RatingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_rating
-      @rating = current_user.ratings.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def rating_params
-      params.require(:rating).permit(:user_id, :family_id, :happiness, :integer, :honesty, :integer, :reliability, :integer, :consistency, :integer, :respect, :integer, :benefits, :integer, :kids, :integer, :safetyAndComfort, :integer, :pay, :integer, :workAgain, :string, :reputation, :integer, :url, :string)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_rating
+    @rating = Ratings.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def rating_params
+    params.require(:rating).permit(:user_id, :family_id, :happiness,
+                                   :honesty, :reliability, :consistency,
+                                   :respect, :benefits, :kids,
+                                   :safetyAndComfort, :pay, :workAgain,
+                                   :reputation, :url)
+  end
 end
