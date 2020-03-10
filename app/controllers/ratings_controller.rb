@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
 
   # GET /ratings
   def index
-    @ratings = Rating.filter(params.slice(:family_id))
+    @ratings = Rating.all
 
     render json: @ratings
   end

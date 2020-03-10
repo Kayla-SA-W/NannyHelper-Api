@@ -39,6 +39,7 @@ class FamiliesController < OpenReadController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_family
       @family = Family.find(params[:id])

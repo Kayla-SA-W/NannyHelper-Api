@@ -1,4 +1,4 @@
 class FamilySerializer < ActiveModel::Serializer
   attributes :id, :familyName, :parentOneName,
-             :parentTwoName, :numberOfKids, :city, :state
+             :parentTwoName, :numberOfKids, :city, :state, :users
 end
