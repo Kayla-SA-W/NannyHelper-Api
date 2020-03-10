@@ -44,7 +44,7 @@ class RatingsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_rating
-    @rating = Ratings.find(params[:id])
+    @rating = Rating.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.

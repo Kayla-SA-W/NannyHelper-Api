@@ -4,5 +4,5 @@ class User < ApplicationRecord
   include Authentication
 
   has_many :ratings, dependent: :destroy
-  has_many :favorites, through: :ratings
+  has_many :families, through: :ratings
 end
