@@ -37,5 +37,5 @@ I started wanting to find a way to help some of my friends in the childcare circ
 
 ## Wireframes, ERD, and Routes
 
-![ERD](https://imgur.com/Jlwq69k)
-![Routes](https://imgur.com/vRixSTm)
+[ERD](https://imgur.com/Jlwq69k)
+[Routes](https://imgur.com/vRixSTm)
