@@ -29,7 +29,7 @@ module NannyHelperAPI
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
+    config.api_only = false
 
     config.load_defaults 5.1
     # By default in Rails 4 loading an AR model won't establish a connection
